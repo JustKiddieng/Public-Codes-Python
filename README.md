@@ -1,1 +1,1 @@
-# Repository of my Python code to help people.
+# Repository of my Python codes to help anyone.
