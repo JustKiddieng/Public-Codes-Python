@@ -3,7 +3,7 @@
 
 # visit this link: https://www.youtube.com/watch?v=41j63ajBmPI if you want to know how this works.
 
-# note that there
+# note that the file that is already in the destination folder will not overwrite, instead, it will remain on their current location.
 import os, shutil,pymsgbox as msg
 
 def manageFile(targetPath):
