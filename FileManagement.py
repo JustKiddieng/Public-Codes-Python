@@ -1,11 +1,9 @@
-
 # you need to install pymsgbox as external module/package - type "pip install pymsgbox" in command prompt if you are using windows os and os and shutil package/module are built-in in python
 # pymsgbox is external package
 
 # visit this link: https://www.youtube.com/watch?v=41j63ajBmPI if you want to know how this works.
 
 # note that there
-
 import os, shutil,pymsgbox as msg
 
 def manageFile(targetPath):
@@ -61,8 +59,14 @@ def manageFile(targetPath):
                     rev_fileName = fileName[::-1]  # reverse the filename
                     currentFileExtension = rev_fileName[:rev_fileName.index('.')][::-1]  # slice the reverse filename that start from beginning until before .
                     destinationFolder = os.path.join(targetPath, currentFileExtension.upper() + ' Files')  # set the destination of each folder
-                    shutil.move(currentFileFullPath, destinationFolder)  # move the files to their own folder extension name
-                    currentIndex = 0  #go back to the first file
+
+                    #check if the file name exists in the folder
+                    if fileName in os.listdir(destinationFolder):
+                        print(f'filename {fileName} exists in the destination folder')
+                        currentIndex += 1 # continue to iterate the files
+                    else: # if the filename is not exists in the destination folder then move it
+                        shutil.move(currentFileFullPath, destinationFolder)  # move the files to their own folder extension name
+                        currentIndex = 0  #go back to the first file
                 else:
                     destinationFolder = os.path.join(targetPath, 'No extension name')  # set the destination of each folder
                     shutil.move(currentFileFullPath, destinationFolder)  # move the files to their own folder extension name
