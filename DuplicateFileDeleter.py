@@ -35,7 +35,7 @@ print()
 fileDirectory = input("Enter the full directory you want to look for duplicate files: ")
 dirFileList = os.listdir(fileDirectory)  # list all the files on that directory and put it ony variable dirFileList
 
-hashSHA256 = hashlib.sha256()  # set the hashing algorithm to check for the duplicates o1f1111aaaaaaaaaaaaaaaaa
+hashSHA256 = hashlib.sha256()  # set the hashing algorithm to check for the duplicates 
 
 os.chdir(fileDirectory)  # change the directory or go to the fileDirectory
 
@@ -87,7 +87,7 @@ for index in range(len(duplicateHash)):  # iterate using the length of duplicate
             smallestSize = 100  # reset the size of smallest size for the group of duplicate hashes
             exec(f"dup{previousIndex}.remove('{smallestFileName}')")  # then remove the smallest filename
             previousIndex = index  # change the previous index to the current index
-        if len(eval(f'dup{index}[{index2}]')) < smallestSize:  # check if the length of the current dupx list and current content of it is lesses than smallestSize
+        if len(eval(f'dup{index}[{index2}]')) < smallestSize:  # check if the length of the current dupx list and current content of it is lesser than smallestSize
             smallestFileName = eval(f'dup{index}[{index2}]')  # set the smallestFileName var to the current index of current dupx list
             smallestSize = len(eval(f'dup{index}[{index2}]'))  # set the smallestSize to the length of current index of current dupx list
         if index == len(duplicateHash)-1 and index2 == len(eval(f"dup{index}"))-1:  # if the current index is last and the current content of index is last also
@@ -99,10 +99,10 @@ print()
 if len(duplicateHash) > 0:  # if there is duplicate hashes or files
     print('##################################################################')
     for index in range(len(duplicateHash)):  # iterate using the length of duplicateHash list
-        print(f'Base filename: {smallestFilenames[index]}')  # print the base file which hash the smallest filename
+        print(f'Base filename: {smallestFilenames[index]}')  # print the base file which has the smallest filename
         print(f'Duplicates:')
         for index2 in range(len(eval(f"dup{0}"))):  # iterate using the number of elements of the current dupx list
-            print('\t', eval(f'dup{index}[{index2}]'))  # print the filename of the current dupx list which hash the larger filenames
+            print('\t', eval(f'dup{index}[{index2}]'))  # print the filename of the current dupx list which has the larger filenames
         print('##################################################################')
 
     while True:  # iterate until the user enter the correct or valid input
@@ -120,7 +120,7 @@ if len(duplicateHash) > 0:  # if there is duplicate hashes or files
             break  # break or exit the loop
         else:
             print('Please try again and input y for YES and n for NO')  # print to type the valid input
-else:  # if there was not duplicate files in the directory enterd by the user
+else:  # if there was no duplicate files in the directory enterd by the user
     print('\nThere is no duplicate files in this folder')  # print what is going on
 
 print('Program ended...')  # print that the program is ended
